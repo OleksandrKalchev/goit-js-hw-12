@@ -11,11 +11,11 @@ export async function getImagesByQuery(query, page) {
     q: query,
     image_type: 'photo',
     orientation: 'horizontal',
-    safesearch: 'true',
+    safesearch: true,
     per_page: 15,
     page: page,
   };
 
   const res = await axios.get(url, { params });
-  return res.data.hits;
+  return res.data;
 }

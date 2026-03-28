@@ -44,7 +44,7 @@ export function imageTemplate(image) {
 export function createGallery(images) {
   const markup = images.map(imageTemplate).join('');
 
-  refs.listElem.insertAdjacentHTML('afterbegin', `${markup}`);
+  refs.listElem.insertAdjacentHTML('beforeend', `${markup}`);
 
   let gallery = new SimpleLightbox('.gallery-item a', {
     captionsData: 'alt',
@@ -63,4 +63,12 @@ export function showLoader() {
 
 export function hideLoader() {
   refs.loader.classList.add('hidden');
+}
+
+export function showLoadMoreButton() {
+  refs.loadMore.classList.remove('hidden');
+}
+
+export function hideLoadMoreButton() {
+  refs.loadMore.classList.add('hidden');
 }
